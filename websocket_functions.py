@@ -561,7 +561,7 @@ def on_messagews2(ws, message):
                             if mention != '':
                                 mention = f"{mention}"                            
                             webhook = DiscordWebhook(
-                                url="https://discord.com/api/webhooks/1073339949090345040/tygjKIym47HX4zwxa5Wdu01FUgsi9Isgb5gs37d92WTTJp6qFlzfnsu-phLNOua-8Rgw"
+                                url=toxicWH
                             )
                             embed = DiscordEmbed(
                                 title=f"[⚠] Toxicity detected in #{channel}",
