@@ -1,11 +1,6 @@
-import websocket
-import time
-from time import sleep
 from datetime import datetime, timedelta
-import _thread
 import json
 from discord_webhook import DiscordWebhook, DiscordEmbed
-import discord
 import requests
 import datetime
 
@@ -239,7 +234,6 @@ def on_messagews1(ws, message):
         icons = data.get("icons")
         created_at = data["createdAt"]
         created_at = datetime.datetime.strptime(created_at, "%Y-%m-%dT%H:%M:%SZ")
-        print(created_at, '/', datetime.datetime.utcnow())
         if created_at + datetime.timedelta(seconds=10) > datetime.datetime.utcnow() - datetime.timedelta(seconds=10):
             icon_str = ""
             for icon in icons:
@@ -495,7 +489,7 @@ def on_messagews1(ws, message):
             response = webhook.execute()
             print(f"---------------------------------------------")
 
-    elif not message.startswith('42["p",') and not message.startswith('42["chat.user.message"'):
+    elif not message.startswith('42["p",') and not message.startswith('42["canvas",') and not message.startswith('42["chat.user.message"') and not message.startswith('42["areas",'):
         print("Received XTra: ", message)
 
 
@@ -516,7 +510,6 @@ def on_messagews2(ws, message):
         icons = data.get("icons")
         created_at = data["createdAt"]
         created_at = datetime.datetime.strptime(created_at, "%Y-%m-%dT%H:%M:%SZ")
-        print(created_at, '/', datetime.datetime.utcnow())
         if created_at + datetime.timedelta(seconds=10) > datetime.datetime.utcnow() - datetime.timedelta(seconds=10):
             icon_str = ""
             for icon in icons:

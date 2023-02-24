@@ -1,14 +1,7 @@
 import websocket
 import time
-from time import sleep
-from datetime import datetime, timedelta
-import _thread
-import json
-from discord_webhook import DiscordWebhook, DiscordEmbed
-import discord
-import requests
-import datetime
 import websocket_functions
+import _thread
 
 def on_message1(ws, message):
     websocket_functions.on_messagews1(ws, message)
