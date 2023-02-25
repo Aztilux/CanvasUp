@@ -4,9 +4,6 @@ from discord_webhook import DiscordWebhook, DiscordEmbed
 import requests
 import datetime
 
-with open('secrets.json') as f:
-    secrets = json.load(f)
-
 icon_dict = {
 "vip": "<:vip:1070865933540802590>",
 "snowball": "<:snowball:1070865913076793385>",
@@ -28,6 +25,8 @@ icon_dict = {
 }
 
 # Webhooks #
+with open('secrets.json') as f:
+    secrets = json.load(f)
 bombsWH = secrets['bombs']
 islandsWH = secrets['islands']
 giftsWH = secrets['gifts']
@@ -44,7 +43,7 @@ def on_messagews1(ws, message):
     if 'item.notification.use' in message:
         start = message.index('{"')
         end = message.rindex("}") + 1
-        data = json.loads(log_message[start:end])
+        data = json.loads(message[start:end])
         from_user = data["from"]
         item_name = data["itemName"]
         item = data["item"]
