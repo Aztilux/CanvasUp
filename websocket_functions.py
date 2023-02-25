@@ -4,9 +4,6 @@ from discord_webhook import DiscordWebhook, DiscordEmbed
 import requests
 import datetime
 
-with open('secrets.json') as f:
-    secrets = json.load(f)
-
 icon_dict = {
 "vip": "<:vip:1070865933540802590>",
 "snowball": "<:snowball:1070865913076793385>",
@@ -28,6 +25,8 @@ icon_dict = {
 }
 
 # Webhooks #
+with open('secrets.json') as f:
+    secrets = json.load(f)
 bombsWH = secrets['bombs']
 islandsWH = secrets['islands']
 giftsWH = secrets['gifts']
