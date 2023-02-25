@@ -44,7 +44,7 @@ def on_messagews1(ws, message):
     if 'item.notification.use' in message:
         start = message.index('{"')
         end = message.rindex("}") + 1
-        data = json.loads(log_message[start:end])
+        data = json.loads(message[start:end])
         from_user = data["from"]
         item_name = data["itemName"]
         item = data["item"]
