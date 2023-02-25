@@ -63,4 +63,7 @@ if __name__ == "__main__":
     ws2.on_open = on_open2
     _thread.start_new_thread(ws2.run_forever, ())
     _thread.start_new_thread(send_message2, (ws2,))
-    ws2.run_forever()
+
+#keepup
+while True:
+    pass
